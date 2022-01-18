@@ -6,8 +6,8 @@ import ContentRowMovies from './ContentRowMovies';
 import Chart from './Chart';
 import LastMovieInDb from './LastMovieInDb';
 import GenresInDB from './GenresInDb'
-import { Route, Switch } from 'react-router-dom'
 import NotFound from './NotFound';
+import { Routes, Route } from 'react-router-dom';
 
 /* import GenresInDb from './GenresInDb' */
 
@@ -21,12 +21,12 @@ function App() {
             <ContentRowMovies />
             {/* Inicio de campo de muestra */}
             <div className='center'>
-              <Switch>
-              <Route path='/lastmovie' component={LastMovieInDb}/>
-              <Route path='/genres' component={GenresInDB}/>
-              <Route path='/content' component={Chart}/>
-              <Route component={NotFound}/>
-              </Switch>
+              <Routes>
+                <Route path='/lastmovie' element={<LastMovieInDb/>}/>
+                <Route path='/genres' element={<GenresInDB/>}/>
+                <Route path='/content' element={<Chart/>}/>
+                <Route path='*' element={<NotFound/>}/>
+              </Routes>
             </div>
             {/* Fin de campo de muestra */}
             <Footer />
